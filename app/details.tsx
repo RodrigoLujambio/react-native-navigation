@@ -1,4 +1,4 @@
-import { Link, Stack, useLocalSearchParams } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { Text, View, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { getInfoById } from "./api";
@@ -27,20 +27,22 @@ const Details = () => {
           },
         }}
       />
-      <View
-        style={{
-          backgroundColor: "white",
-          borderRadius: 10,
-          width: "90%",
-          margin: 16,
-          padding: 16,
-        }}
-      >
-        <Text style={{ fontWeight: "bold" }}>{animal.name}</Text>
-        <Text style={{ fontWeight: "normal" }}>{animal.species}</Text>
-        <Text style={{ fontWeight: "normal" }}>{animal.habitat}</Text>
-        <Text style={{ fontWeight: "normal" }}>{animal.diet}</Text>
-      </View>
+      {animal && (
+        <View
+          style={{
+            backgroundColor: "white",
+            borderRadius: 10,
+            width: "90%",
+            margin: 16,
+            padding: 16,
+          }}
+        >
+          <Text style={{ fontWeight: "bold" }}>{animal.name}</Text>
+          <Text style={{ fontWeight: "normal" }}>{animal.species}</Text>
+          <Text style={{ fontWeight: "normal" }}>{animal.habitat}</Text>
+          <Text style={{ fontWeight: "normal" }}>{animal.diet}</Text>
+        </View>
+      )}
     </View>
   );
 };
